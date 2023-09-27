@@ -15,6 +15,7 @@ const project_entity_1 = require("../entities/project.entity");
 const typeorm_1 = require("typeorm");
 const typeorm_2 = require("@nestjs/typeorm");
 const article_entity_1 = require("../entities/article.entity");
+const tech_entity_1 = require("../entities/tech.entity");
 let RepoService = exports.RepoService = class RepoService {
 };
 __decorate([
@@ -25,6 +26,10 @@ __decorate([
     (0, typeorm_2.InjectRepository)(article_entity_1.Article),
     __metadata("design:type", typeorm_1.Repository)
 ], RepoService.prototype, "articleRepo", void 0);
+__decorate([
+    (0, typeorm_2.InjectRepository)(tech_entity_1.Tech),
+    __metadata("design:type", typeorm_1.Repository)
+], RepoService.prototype, "techRepo", void 0);
 exports.RepoService = RepoService = __decorate([
     (0, common_1.Injectable)()
 ], RepoService);

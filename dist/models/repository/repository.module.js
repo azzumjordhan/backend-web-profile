@@ -12,12 +12,13 @@ const typeorm_1 = require("@nestjs/typeorm");
 const project_entity_1 = require("../entities/project.entity");
 const article_entity_1 = require("../entities/article.entity");
 const repository_service_1 = require("./repository.service");
+const tech_entity_1 = require("../entities/tech.entity");
 let RepoModule = exports.RepoModule = class RepoModule {
 };
 exports.RepoModule = RepoModule = __decorate([
     (0, common_1.Global)(),
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([project_entity_1.Project, article_entity_1.Article])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([project_entity_1.Project, article_entity_1.Article, tech_entity_1.Tech])],
         providers: [repository_service_1.RepoService],
         exports: [repository_service_1.RepoService],
     })
