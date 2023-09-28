@@ -6,7 +6,13 @@ export class DashboardService {
   public constructor(private readonly repoService: RepoService) {}
 
   async techStack() {
-    return null;
+    const techData = await this.repoService.techRepo
+      .createQueryBuilder('tech')
+      .where('tech.type = :type', { type: 'backend' })
+      .limit(4)
+      .orderBy('tech.priority', 'ASC')
+      .getMany();
+    return techData;
   }
 
   async article() {
@@ -23,7 +29,7 @@ export class DashboardService {
   async project() {
     const projectData = await this.repoService.projectRepo
       .createQueryBuilder('project')
-      .limit(3)
+      .limit(4)
       .orderBy('project.created_at', 'DESC')
       .getMany();
     console.log(projectData);

@@ -75,6 +75,15 @@ export class TechController {
     });
   }
 
+  @Get('category')
+  async getTechByCategory(@Res() res: Response) {
+    const result = await this.techService.findTechCategory();
+    return res.status(HttpStatus.OK).send({
+      message: 'SUCCESS',
+      data: result,
+    });
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: string, @Res() res: Response) {
     const result = await this.techService.findOne(id);

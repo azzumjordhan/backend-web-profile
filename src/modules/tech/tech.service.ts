@@ -44,6 +44,34 @@ export class TechService {
     return paginate<Tech>(queryTech, options);
   }
 
+  async findTechCategory() {
+    const techCategory = await this.repoService.techRepo
+      .createQueryBuilder('tech')
+      .orderBy('tech.priority')
+      .getMany();
+
+    const backend = [];
+    const frontend = [];
+    const database = [];
+    const another_tools = [];
+    const current_learning = [];
+    techCategory.forEach((data) => {
+      if (data.type == 'backend') {
+        backend.push(data);
+      } else if (data.type == 'frontend') {
+        frontend.push(data);
+      } else if (data.type == 'database') {
+        database.push(data);
+      } else if (data.type == 'another') {
+        another_tools.push(data);
+      } else {
+        current_learning.push(data);
+      }
+    });
+
+    return { backend, frontend, database, another_tools, current_learning };
+  }
+
   async findOne(id: string) {
     const techData = await this.repoService.techRepo.findOne({
       where: { id },
