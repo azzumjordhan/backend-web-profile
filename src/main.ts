@@ -24,12 +24,7 @@ async function bootstrap() {
   }
 
   app.enableCors({
-    origin: [
-      'http://localhost:3000',
-      /localhost/,
-      // /\.nanovest\.io$/,
-      // /\.nanovest\.dev$/,
-    ],
+    origin: ['http://localhost:3000', /localhost/, /azzumjordhan.opree.id$/],
     // methods: ["GET", "POST"],
     credentials: true,
   });
