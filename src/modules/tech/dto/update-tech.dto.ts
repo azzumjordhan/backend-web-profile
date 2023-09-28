@@ -1,4 +1,15 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateTechDto } from './create-tech.dto';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class UpdateTechDto extends PartialType(CreateTechDto) {}
+export class UpdateTechDto {
+  @ApiProperty()
+  name_tech: string;
+
+  @ApiProperty()
+  type: string;
+
+  @ApiProperty()
+  picture: string;
+
+  @ApiProperty()
+  priority: number;
+}
